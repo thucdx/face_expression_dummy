@@ -29,7 +29,8 @@
 }  
 
 body {
-	font-family: digital;
+	/*font-family: digital;*/
+	font-family: "Lucida Console", Monaco, monospace;
 }
 
 .label {
@@ -40,7 +41,7 @@ body {
 	border: 1px solid red;
 	border-radius: 1em;
 	width: 20em;
-	height: 10em;
+	height: 13em;
 	padding: 1em;
 }
 
@@ -52,4 +53,3 @@ body {
 th, td {
 	font-size: 2em;
 }
-

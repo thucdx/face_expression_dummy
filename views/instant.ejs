@@ -1,28 +1,16 @@
 <html>
 <head>
-
-<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script src="js/socket.io.js"></script>
-	<script src="js/jquery.min.js"></script>
-	<script>
-	  var socket = io.connect('http://facer:3000');
-	  socket.on('news', function (data) {
-	    console.log(data);
-	    $("#age").text(data.age);
-	    $("#gender").text(data.gender);
-	    $("#expression").text(data["face_expression"]);
-
-	    socket.emit('FROM CLIENT', { my: 'OK' });
-	  });
-	</script>
+	<title> Face detection </title>
+	<!-- <meta http-equiv="refresh" content="1" /> -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
 <table id="info">
 	<tr><th colspan="2"> Information </th>
-	<tr><td class="label">Age</td><td id="age"> NO DATA </td></tr>
-	<tr><td class="label">Gender</td><td id="gender"> NO DATA </td></tr>
-	<tr><td class="label">Expression</td><td id="expression"> NO DATA </td></tr>
+	<tr><td class="label">Age</td><td id="age"><%= info.age %></td></tr>
+	<tr><td class="label">Gender</td><td id="gender"><%= info.gender %> </td></tr>
+	<tr><td class="label">Expression</td><td id="expression"><%= info.face_expression %></td></tr>
 </table>
 
 </body>

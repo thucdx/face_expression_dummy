@@ -45,32 +45,21 @@ consumer.on('error', function (err) {
 });
 
 
-// Socket.io
-var io = require('socket.io')(server);
+consumer.on('message', function (message) {
+    console.log(message);
+    value = message.value;
 
-io.on('connection', function (socket) {
-    consumer.on('message', function (message) {
-        console.log(message);
-        value = message.value;
+    try {
+        value = JSON.parse(value);
 
-        try {
-            value = JSON.parse(value);
-
-            if ("device_type" in value && value["device_type"] == "facial_sensing") {
-                info = value;
-                socket.emit('news', info);
-                console.log("INFO: " + JSON.stringify(info));
-            }
-        } catch (e) {
-            return console.error(e);
+        if ("device_type" in value && value["device_type"] == "facial_sensing") {
+            info = value;
+            socket.emit('news', info);
+            console.log("INFO: " + JSON.stringify(info));
         }
-    });
-
-    // socket.emit('news', "HELLO WORLD");        
-
-    socket.on('my other event', function (data) {
-        console.log(data);
-    });
+    } catch (e) {
+        return console.error(e);
+    }
 });
 
 server.listen(3000, function() {
