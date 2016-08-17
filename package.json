@@ -13,11 +13,12 @@
   ],
 
   "dependencies": {
-      "kafka-node": "*",
+      "kafka-node": "0.5.5",
       "express": "~4.13.2",
       "ejs": "*",
       "body-parser": "*",
-      "node-dev": "*"
+      "node-dev": "*",
+      "socket.io": "*"
   },
 
   "author": "thucdx",
