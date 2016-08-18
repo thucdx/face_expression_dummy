@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.get('/', function(req, res) {
-	res.render('instant');
+	res.render('instant', {info: last_info});
 });
 
 // Kafka
@@ -53,9 +53,8 @@ consumer.on('message', function (message) {
         value = JSON.parse(value);
 
         if ("device_type" in value && value["device_type"] == "facial_sensing") {
-            info = value;
-            socket.emit('news', info);
-            console.log("INFO: " + JSON.stringify(info));
+            last_info = value;
+            console.log("INFO: " + JSON.stringify(last_info));
         }
     } catch (e) {
         return console.error(e);
