@@ -46,7 +46,7 @@ consumer.on('error', function (err) {
 
 
 consumer.on('message', function (message) {
-    console.log(message);
+    // console.log(message);
     value = message.value;
 
     try {
