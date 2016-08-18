@@ -38,8 +38,6 @@ var kafka = require('kafka-node'),
         }
     );
 
-
-
 consumer.on('error', function (err) {
     console.log("ERR: " + err);
 });
